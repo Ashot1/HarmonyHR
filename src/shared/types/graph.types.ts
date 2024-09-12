@@ -36,3 +36,13 @@ export type RefreshTokenResponse = {
    data: null | RefreshAccessToken
    errors: undefined | BackendError
 }
+
+export type UserResponse = {
+   data: null | {
+      myProfile: {
+         id: string
+         name: string
+         avatar: string
+      }
+   }
+}

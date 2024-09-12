@@ -1,7 +1,7 @@
 import { graphRequest } from '@/shared/lib/utils'
 import { NextRequest, NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
-import { BackendError, LoginResponse } from '@/shared/lib/types'
+import { BackendError, LoginResponse } from '@/shared/types/graph.types'
 import { TokenParameters, TOKENS } from '@/shared/lib/config'
 
 // ошибка, которая всплывает если пришли пустые поля, чтобы не делать лишних запросов к бд

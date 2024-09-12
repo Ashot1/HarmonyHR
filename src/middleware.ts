@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { TokenParameters, TOKENS } from '@/shared/lib/config'
 import { graphRequest } from '@/shared/lib/utils'
-import { RefreshTokenResponse } from '@/shared/lib/types'
+import { RefreshTokenResponse } from '@/shared/types/graph.types'
 
 export default async function middleware(request: NextRequest) {
    const pathname = request.nextUrl.pathname
