@@ -6,11 +6,15 @@ export function cn(...inputs: ClassValue[]) {
    return twMerge(clsx(inputs))
 }
 
-export async function graphRequest<T>(query: string) {
+export async function graphRequest<T>(
+   query: string,
+   options?: { headers?: { [key: string]: string } }
+) {
    const res = await fetch(graphURL, {
       method: 'POST',
       headers: {
          'Content-Type': 'application/json',
+         ...options?.headers,
       },
       body: JSON.stringify({ query }),
    })
