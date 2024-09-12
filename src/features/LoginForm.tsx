@@ -12,7 +12,6 @@ import { Input } from '@/shared/ui/input'
 import { Label } from '@/shared/ui/label'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
-import { BackendError } from '@/shared/lib/types'
 
 export function LoginForm() {
    const router = useRouter()
@@ -20,20 +19,30 @@ export function LoginForm() {
 
    const Login = async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
+
       setError(undefined)
 
+      //получаем все поля из формы
+      const fields = (e.target as HTMLFormElement).querySelectorAll('input')
+      const fieldsInfo: { [key: string]: string } = {}
+
+      // записываем их в формате id: value
+      for (let i = 0; i < fields.length; i++) {
+         const item = fields.item(i)
+         fieldsInfo[item.id] = item.value
+      }
+
+      // отправляем запрос на сервер
       const response = await fetch('/api/login', {
          method: 'POST',
-         body: JSON.stringify({
-            email: 'john@mail.com',
-            password: 'changeme',
-         }),
+         body: JSON.stringify(fieldsInfo),
       })
 
-      const data = (await response.json()) as BackendError
+      // выводим ошибку при наличии
+      const data = await response.json()
       setError(data[0]?.message)
 
-      if (response.status === 200) router.push('/')
+      if (response.status === 200) router.push('/info')
    }
 
    return (
