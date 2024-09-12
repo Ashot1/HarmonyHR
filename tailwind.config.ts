@@ -4,6 +4,14 @@ const config: Config = {
    darkMode: ['class'],
    content: ['./src/**/*.{tsx,css}'],
    theme: {
+      screens: {
+         '300p': '340px',
+         '500p': '520px',
+         '768p': '820px',
+         '1024p': '1120px',
+         '1080p': '1640px',
+         '4k': '2250px',
+      },
       extend: {
          colors: {
             background: 'hsl(var(--background))',
@@ -46,6 +54,15 @@ const config: Config = {
                '4': 'hsl(var(--chart-4))',
                '5': 'hsl(var(--chart-5))',
             },
+         },
+         keyframes: {
+            'slide-in': {
+               '0%': { transform: 'translateX(100%)', opacity: '0' },
+               '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+         },
+         animation: {
+            'slide-in': 'slide-in 0.4s ease-out',
          },
          borderRadius: {
             lg: 'var(--radius)',
