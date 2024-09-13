@@ -2,7 +2,7 @@
 
 import { FC, HTMLAttributes, ReactNode } from 'react'
 import { cn } from '@/shared/lib/utils'
-import MenuButton from '@/entities/MenuButton'
+import MenuButton, { MenuButtonProps } from '@/entities/MenuButton'
 import { usePathname } from 'next/navigation'
 
 export type MenuItem = {
@@ -13,9 +13,16 @@ export type MenuItem = {
 
 export type MenuProps = {
    items: MenuItem[]
-} & Omit<HTMLAttributes<HTMLDivElement>, 'children'>
+} & Omit<HTMLAttributes<HTMLDivElement>, 'children'> &
+   Partial<Pick<MenuButtonProps, 'activeColor'> & { ButtonClassName: string }>
 
-const Menu: FC<MenuProps> = ({ items, className, ...props }) => {
+const Menu: FC<MenuProps> = ({
+   items,
+   className,
+   activeColor,
+   ButtonClassName,
+   ...props
+}) => {
    const pathname = usePathname()
 
    return (
@@ -24,9 +31,12 @@ const Menu: FC<MenuProps> = ({ items, className, ...props }) => {
             <MenuButton
                key={item.link}
                link={item.link}
-               isActive={pathname === item.link}
-               className="hover:bg-[rgba(218,230,242,0.6)] hover:text-primary/50 text-sm 768p:text-base"
-               activeColor="bg-[rgba(218,230,242,1)]"
+               isActive={pathname.startsWith(item.link)}
+               className={cn(
+                  'hover:bg-[rgba(218,230,242,0.6)] hover:text-primary/50 text-sm 768p:text-base',
+                  ButtonClassName
+               )}
+               activeColor={cn('bg-[rgba(218,230,242,1)]', activeColor)}
             >
                {item.icon}
                {item.name}

@@ -4,13 +4,13 @@ import { FC, HTMLAttributes } from 'react'
 import Link from 'next/link'
 import { cn } from '@/shared/lib/utils'
 
-export type HeaderMenuButtonProps = {
+export type MenuButtonProps = {
    link: string
    isActive?: boolean
    activeColor?: string
 } & HTMLAttributes<HTMLAnchorElement>
 
-const MenuButton: FC<HeaderMenuButtonProps> = ({
+const MenuButton: FC<MenuButtonProps> = ({
    link,
    children,
    className,

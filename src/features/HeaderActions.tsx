@@ -25,7 +25,7 @@ const HeaderActions: FC<HeaderActionProps> = (props) => {
    const [MobileDropDownState, setMobileDropDownState] = useState(false)
 
    const logOut = async () => {
-      const response = await fetch('api/logout')
+      const response = await fetch('/api/logout')
       if (response.status === 200) router.push('/login')
    }
 

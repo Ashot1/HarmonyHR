@@ -1,3 +1,6 @@
 import { Inter } from 'next/font/google'
 
-export const inter = Inter({ subsets: ['cyrillic', 'latin'], weight: ['500'] })
+export const inter = Inter({
+   subsets: ['cyrillic', 'latin'],
+   weight: ['500', '600'],
+})

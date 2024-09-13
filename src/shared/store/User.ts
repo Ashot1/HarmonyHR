@@ -58,11 +58,11 @@ const initialState: UserType = {
    name: '',
    email: 'avd.yana@videorollnet',
    phone: '07911 654321',
-   accrualLevelStart: '03.09.2020',
+   accrualLevelStart: '03/09-2020',
    sick: 3,
    annualLeave: 10.3,
    lieuTime: 0,
-   hireDate: '03.09.2020',
+   hireDate: '09.03.2020',
    jobInfo: {
       id: 5,
       employmentType: 'Full-Time',
@@ -81,8 +81,8 @@ const initialState: UserType = {
       { name: 'Michael' },
    ],
    upcomingTimeOff: [
-      { date: '27.06.2020', type: 'Health', description: '1 dey of Sick' },
-      { date: '04.07.2020', type: 'Holiday', description: 'Independence Day' },
+      { date: '06.27.2020', type: 'Health', description: '1 dey of Sick' },
+      { date: '07.04.2020', type: 'Holiday', description: 'Independence Day' },
    ],
    userHistory: History,
 }

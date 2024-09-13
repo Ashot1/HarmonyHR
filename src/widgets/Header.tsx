@@ -15,7 +15,7 @@ export default function Header() {
    ]
 
    return (
-      <div className="bg-white w-full pt-8 h-20 flex px-3 768p:px-6 gap-3 1080p:gap-20 relative justify-between overflow-x-clip">
+      <div className="bg-white w-dvw pt-8 h-20 flex px-3 768p:px-6 gap-3 1080p:gap-20 relative justify-between overflow-x-clip">
          <Logo className="flex justify-center leading-6" />
          <Menu
             items={HeaderMenuItems}
@@ -31,7 +31,7 @@ export default function Header() {
          <TripleHiddenElement className="768p:hidden">
             <Menu
                items={HeaderMenuItems}
-               className="768p:hidden absolute flex justify-center animate-slide-in top-[110%] right-1 px-4 py-2 flex-col bg-white rounded-xl"
+               className="768p:hidden absolute flex justify-center animate-slide-in top-[110%] right-1 px-4 py-2 flex-col bg-white rounded-xl z-10"
             />
          </TripleHiddenElement>
          <HeaderActions />

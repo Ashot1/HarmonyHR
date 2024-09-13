@@ -38,7 +38,6 @@ export async function POST(request: NextRequest) {
          }
       }
    `)
-
    // добавляем токены в куки
    if (response.data) {
       const cookieStore = cookies()
