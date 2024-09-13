@@ -21,3 +21,18 @@ export async function graphRequest<T>(
 
    return (await res.json()) as T
 }
+
+type ConvertDateProps = {
+   IncomingDate: string | Date
+   options?: Intl.DateTimeFormatOptions
+   needTime?: boolean
+}
+export const formatDate = ({
+   IncomingDate,
+   options,
+   needTime,
+}: ConvertDateProps) => {
+   const date = new Date(IncomingDate)
+   if (!needTime) return date.toLocaleDateString('en-US', options)
+   return date.toLocaleString('en-US', options)
+}
