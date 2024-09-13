@@ -50,9 +50,9 @@ function MainInfo({ phone, email }: Pick<UserType, 'phone' | 'email'>) {
    const Items: UserBlockItemProps[] = [
       {
          text: phone,
-         icon: <PhoneIcon className="size-5" />,
+         icon: <PhoneIcon className="size-5 min-w-5" />,
       },
-      { text: email, icon: <MailIcon className="size-5" /> },
+      { text: email, icon: <MailIcon className="size-5 min-w-5" /> },
    ]
 
    const footer = (

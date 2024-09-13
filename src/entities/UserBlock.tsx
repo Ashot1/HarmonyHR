@@ -30,7 +30,7 @@ export default function UserBlock({
          {heading}
          <ul className="grid grid-cols-1 gap-3">
             {items.map((item, index) => (
-               <li key={index} className="flex items-center gap-2">
+               <li key={index} className="flex items-center gap-2 break-all">
                   {item.icon} {item.text}
                </li>
             ))}
