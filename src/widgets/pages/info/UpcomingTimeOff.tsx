@@ -10,8 +10,8 @@ import { formatDate } from '@/shared/lib/utils'
 import { inter } from '@/shared/lib/fonts'
 
 const icons: Record<UpcomingTimeOffTypes, ReactNode> = {
-   Health: <CrossIcon className="size-10 text-[rgba(28,49,68,1)]" />,
-   Holiday: <Image src="/pig.svg" alt="Holiday icon" width={40} height={40} />,
+   Health: <CrossIcon className="size-[30px] text-[rgba(28,49,68,1)]" />,
+   Holiday: <Image src="/pig.svg" alt="Holiday icon" width={30} height={30} />,
 }
 
 const UpcomingTimeOff: FC = () => {
@@ -54,7 +54,7 @@ const ListItem: FC<{ icon: ReactNode; title: string; description: string }> = ({
    description,
 }) => {
    return (
-      <li className="border-b-2 border-[rgba(124,150,177,1)] py-4 flex gap-4">
+      <li className="border-b-2 border-[rgba(124,150,177,1)] py-4 flex gap-4 items-center text-sm 768p:text-base">
          {icon}
          <span className={inter.className}>
             <p>{title}</p>

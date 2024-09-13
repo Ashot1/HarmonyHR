@@ -1,6 +1,6 @@
 'use client'
 
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 import SectionHeader from '@/shared/ui/Headings/SectionHeader'
 import Image from 'next/image'
 import { useUser } from '@/shared/store/User'
@@ -9,10 +9,10 @@ import { CrossIcon } from 'lucide-react'
 import { UserType } from '@/shared/types/userState.types'
 import { ScrollArea, ScrollBar } from '@/shared/ui/scroll-area'
 
-type DataType = (Pick<
-   TimeOffBlockProps,
-   'main' | 'heading' | 'footer' | 'description'
-> & { signature: string })[]
+type DataType = (Pick<TimeOffBlockProps, 'main' | 'footer' | 'description'> & {
+   signature: string
+   heading: string
+})[]
 
 // информация по блокам
 const data = (User: UserType): DataType => [
@@ -66,7 +66,7 @@ const TimeOff: FC = () => {
    const User = useUser((state) => state.User)
 
    const rightContent = (
-      <div className="flex gap-6 items-center">
+      <div className="flex gap-6 items-center text-sm 768p:text-base">
          <p>
             Accrual Level Start Date{' '}
             <span className="text-[rgba(55,88,171,1)]">
@@ -93,19 +93,15 @@ const TimeOff: FC = () => {
             }
             rightContent={rightContent}
          />
-         <ScrollArea className="px-[7%]">
-            <div className="grid grid-rows-[1fr_0.2fr] gap-x-14 gap-y-2 pt-7 grid-flow-col">
+         <ScrollArea className="1024p:px-[7%]">
+            <div className="grid grid-rows-[1fr_0.2fr] gap-x-4 768p:gap-x-14 gap-y-2 pt-7 grid-flow-col">
                {data(User).map((item) => (
-                  <>
-                     <TimeOffBlock
-                        key={item.description}
-                        className="min-w-[250px]"
-                        {...item}
-                     />
+                  <Fragment key={item.heading}>
+                     <TimeOffBlock className="min-w-[250px]" {...item} />
                      <p className="justify-self-center text-[rgba(124,150,177,1)]">
                         {item.signature}
                      </p>
-                  </>
+                  </Fragment>
                ))}
             </div>
             <ScrollBar orientation="horizontal" />
