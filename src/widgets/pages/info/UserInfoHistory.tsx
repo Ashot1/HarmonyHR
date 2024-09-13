@@ -42,11 +42,7 @@ const UserInfoHistory: FC = () => {
             headingClassName="text-lg"
          />
          <ScrollArea>
-            <CustomTable
-               header={tableHeader}
-               content={tableData}
-               className="min-w-[700px]"
-            />
+            <CustomTable header={tableHeader} content={tableData} />
             <ScrollBar orientation="horizontal" />
          </ScrollArea>
       </div>

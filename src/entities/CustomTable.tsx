@@ -24,7 +24,7 @@ export default function CustomTable({
    className,
 }: CustomTableProps) {
    return (
-      <Table className={className}>
+      <Table className={cn('min-w-[700px]', className)}>
          {caption && <TableCaption>{caption}</TableCaption>}
          <TableHeader
             className={cn(
@@ -51,8 +51,11 @@ export default function CustomTable({
                   className="border-b-2 border-[rgba(124,150,177,1)] text-base"
                   tabIndex={0}
                >
-                  {row.map((col) => (
-                     <TableCell key={`col-${index} ${col}`} aria-label={col}>
+                  {row.map((col, colIndex) => (
+                     <TableCell
+                        key={`row-${index} col-${colIndex}`}
+                        aria-label={col}
+                     >
                         {col}
                      </TableCell>
                   ))}
