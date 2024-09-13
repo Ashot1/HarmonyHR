@@ -31,7 +31,7 @@ export default function Header() {
          <TripleHiddenElement className="768p:hidden">
             <Menu
                items={HeaderMenuItems}
-               className="768p:hidden absolute flex justify-center animate-slide-in top-[110%] right-1 px-4 py-2 flex-col bg-white rounded-xl z-10"
+               className="768p:hidden absolute flex justify-center animate-slide-in top-[110%] right-1 px-4 py-2 flex-col bg-white rounded-xl z-10 shadow-lg"
             />
          </TripleHiddenElement>
          <HeaderActions />
