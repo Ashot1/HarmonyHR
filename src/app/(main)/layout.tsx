@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import UserProvider from '@/shared/hoc/UserProvider'
-import { getUser } from '@/app/actions/user'
+import { getUser } from '@/shared/actions/user'
 import Header from '@/widgets/Header'
 
 export default async function MainPagesLayout({
