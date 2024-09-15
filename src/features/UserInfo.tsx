@@ -29,7 +29,11 @@ const UserInfo: FC<
    return (
       <ScrollArea className={wrapperClassName}>
          <div
-            className={cn('grid grid-cols-1 gap-4', inter.className, className)}
+            className={cn(
+               'grid grid-cols-1 gap-4 text-sm 768p:text-base',
+               inter.className,
+               className
+            )}
             {...props}
          >
             <MainInfo email={User.email} phone={User.phone} />
