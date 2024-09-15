@@ -1,5 +1,3 @@
-export const graphURL = 'https://api.escuelajs.co/graphql'
-
 export const MAX_LOGIN_COOKIE_AGE = 60 * 60 * 24 * 30
 
 export const TOKENS = {

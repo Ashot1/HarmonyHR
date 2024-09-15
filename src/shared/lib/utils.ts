@@ -1,6 +1,5 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { graphURL } from '@/shared/lib/config'
 
 export function cn(...inputs: ClassValue[]) {
    return twMerge(clsx(inputs))
@@ -10,7 +9,10 @@ export async function graphRequest<T>(
    query: string,
    options?: { headers?: { [key: string]: string } }
 ) {
-   const res = await fetch(graphURL, {
+   const url = process.env.GRAPHQL_URL
+   if (!url) throw new Error('GRAPHQL_URL is not defined')
+
+   const res = await fetch(url, {
       method: 'POST',
       headers: {
          'Content-Type': 'application/json',
